@@ -1,4 +1,4 @@
-//var socket = io.connect();
+var socket = io.connect();
 var side = 20;
 var matrix = [[9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9],
 [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9],
@@ -30,20 +30,14 @@ var matrix = [[9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
 ];
 
 
-//var matrix=[];
 var grassArr = [];
 var xotakerner = [];
 var Gishatich = [];
-//var Gishaticheg = [];
 var wifii = [];
 var youtude = [];
-var bomb = [];
 var dinamitt = [];
 var exanak = "garun";
-var amare = "Amare e!";
-var garune = "Garun e!";
-var ashune = "Ashun e!";
-var dzmere = "Dzmer e!";
+
 
 myVar = setInterval(function () {
     if (exanak == "garun") {
@@ -120,74 +114,30 @@ function setup() {
 
 function draw() {
 
+
+
+
+
 //////////////////////////////////////      Statistika     //////////////////////////////////
-if (frameCount % 10 == 0) {
-    var xotakerner=0
-
-    for (y in matrix) {
-        for (x in matrix[y]) {
-            if (matrix[y][x] == 2) {
-                for (let i = 0; i < xotakerner.length; i++) {
-                    if (xotakerner[i].x == x && xotakerner[i].y == y) {
-                       xoatakerner++;
-                    }
-                   
-                }
-            }
-        }
+if(frameCount % 60 == 0){
+    var kadr = {
+        "wifineri qanaky-": wifii.length,
+        "youtubei qanaky-": youtude.length,
+        "dinamiti qanaky-": dinamitt.length,
+        "xotakerneri qanaky-": xotakerner.length, 
+        "gishatichneri qanaky-": Gishatich.length,
+        
+    };
+    var myJSON = JSON.stringify(kadr);
+    function handleSubmit(evt) {
+        socket.emit("send statistics", myJSON);
     }
-    for (y in matrix) {
-        for (x in matrix[y]) {
-            if (matrix[y][x] == 3) {
-                for (let i = 0; i < Gishatich.length; i++) {
-                    if (Gishatich[i].x == x && Gishatich[i].y == y) {
-                        Gishatich++;
-                    }
-                   
-                }
-            }
-        }
-    }
-    for (y in matrix) {
-        for (x in matrix[y]) {
-            if (matrix[y][x] == 4) {
-                for (let i = 0; i < wifii.length; i++) {
-                    if (wifii[i].x == x && wifii[i].y == y) {
-                        wifii++;
-                    }
-                   
-                }
-            }
-        }
-    }
-
-
-    for (y in matrix) {
-        for (x in matrix[y]) {
-            if (matrix[y][x] == 5) {
-                for (let i = 0; i < youtude.length; i++) {
-                    if (youtude[i].x == x && youtude[i].y == y) {
-                        youtude++;
-                    }
-                   
-                }
-            }
-        }
-    }
-
-
-
-statistics = {
-    //"Frame number": frameCount,
-    "Խոտերի քանակ- ": grassArr.length,
-    "Խոտակերների քանակ- ": xotakerner.length,
-    "Գիշատիչների քանակ- ":Gishatich.length,
-    "Խոտակեր-գիշատիչների քանակ- ": Gishatich.length,
-    "Գիշատիչների քանակ- ":wifii.length,
-    "Գիշատիչների քանակ- ":youtude.length,
+    handleSubmit();
 }
-socket.emit("send statistics", statistics);
-}
+
+
+
+
 
 
 
@@ -352,6 +302,11 @@ socket.emit("send statistics", statistics);
 
 
 
+
+
+
+
+
         }
         if (exanak == "amar" || exanak == "ashun" || exanak == "garun") {
             for (var i in grassArr) {
@@ -376,14 +331,15 @@ socket.emit("send statistics", statistics);
         for (var i in Gishatich) {
           //  Gishatich[i].sharjvel()
             Gishatich[i].utel();
-         // Gishatich[i].bazmanal();
-           // Gishatich[i].mahanal();
+          Gishatich[i].bazmanal();
+            Gishatich[i].mahanal();
         }
 
       
         for (var i in wifii) {
 
             wifii[i].sharjvel()
+            wifii[i].bazmanal()
             wifii[i].utel()
             wifii[i].mahanal()
 
@@ -391,6 +347,7 @@ socket.emit("send statistics", statistics);
         for (var i in youtude) {
 
             youtude[i].sharjvel()
+            youtude[i].bazmanal()
             youtude[i].utel()
             youtude[i].mahanal()
 

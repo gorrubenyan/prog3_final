@@ -5,16 +5,11 @@ class Dinamit {
         this.y = y;
         this.energy = 15;
         this.directions = [];
-        var ser = Math.random();
-        if (ser < 7.5) {
             this.index = 7
-        }
-        else {
-            this.index = 7.5
-        }
+       
     }
     bazmanal() {
-        if (this.energy == 10) {
+        if (this.energy == 17) {
             var norDinamit = new Dinamit(this.x, this.y);
             dinamitt.push(norDinamit);
             this.energy = 5;

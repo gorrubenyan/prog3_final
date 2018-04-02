@@ -5,13 +5,7 @@ class wifi {
         this.y = y;
         this.energy = 5;
         this.directions = [];
-        var ser = Math.random();
-        if (ser < 4.5) {
-            this.index = 4
-        }
-        else {
-            this.index = 4.5
-        }
+         this.index = 4
     }
 
     yntrelVandak(ch) {
@@ -57,6 +51,17 @@ class wifi {
         }
 
     }
+
+    bazmanal() {
+        if (this.energy == 6) {
+            var norWi = new wifi(this.x, this.y);
+            wifii.push(norWi);
+            this.energy = 5;
+        }
+    }
+
+
+
 
     utel() {
         this.stanalNorKordinatner();

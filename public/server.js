@@ -7,13 +7,13 @@ var io = require('socket.io')(server);
 app.use(express.static("."));
 
 app.get("/", function (req, res) {
-    res.redirect("index.html");
+    res.redirect("/public/index.html");
 });
 
 server.listen(3000);
 
 io.on('connection', function (socket) {
     socket.on("send statistics", function (statistics) {
-        fs.appendFileSync("statistica.json", JSON.stringify(statistics) + "\n");
+        fs.appendFileSync("statistics.json", JSON.stringify(statistics) + "\n");
     })
 });
