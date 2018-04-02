@@ -6,13 +6,9 @@ class youtube {
         this.y = y;
         this.energy = 5;
         this.directions = [];
-        var ser = Math.random();
-        if (ser < 5.5) {
             this.index = 5
-        }
-        else {
-            this.index = 5.5
-        }
+        
+        
     }
 
     yntrelVandak(ch) {
@@ -58,6 +54,16 @@ class youtube {
         }
 
     }
+
+    bazmanal() {
+        if (this.energy == 6) {
+            var norYu = new youtube(this.x, this.y);
+            youtude.push(norYu);
+            this.energy = 5;
+        }
+    }
+
+
 
     utel() {
         this.stanalNorKordinatner();
