@@ -1,0 +1,52 @@
+h1{
+
+}
+
+.content{
+	min-height: 20px;
+	padding: 20px;
+}
+
+.kan{
+color: green;
+}
+
+.karmir{
+	color: red;
+}
+
+.dexin{
+	color: orange;
+}
+.kapuyt{
+	color: blue;
+}
+
+.sev{
+	color: black;
+}
+
+
+
+
+#myProgress {
+  width: 100%;
+  height: 30px;
+  position: relative;
+  background-color: #ddd;
+}
+
+#myBar {
+  background-color: #4CAF50;
+  width: 10px;
+  height: 30px;
+  position: absolute;
+}
+
+.man{
+  color: rgb(196, 9, 243);
+}
+/* 
+.sev{
+	color: rgb(85, 60, 92);
+}   */
