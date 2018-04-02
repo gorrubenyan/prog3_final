@@ -121,12 +121,11 @@ function draw() {
 //////////////////////////////////////      Statistika     //////////////////////////////////
 if(frameCount % 60 == 0){
     var kadr = {
-        "wifineri qanaky-": wifii.length,
-        "youtubei qanaky-": youtude.length,
-        "dinamiti qanaky-": dinamitt.length,
         "xotakerneri qanaky-": xotakerner.length, 
         "gishatichneri qanaky-": Gishatich.length,
-        
+        // "wifineri qanaky-": wifii.length,
+        // "youtubei qanaky-": youtude.length,
+        // "dinamiti qanaky-": dinamitt.length,
     };
     var myJSON = JSON.stringify(kadr);
     function handleSubmit(evt) {
